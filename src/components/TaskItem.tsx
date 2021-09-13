@@ -44,12 +44,13 @@ export function TaskItem({
   }
 
   function handleCancelEditing() {
+    setTitleText(task.title);
     setIsEditing(false);
   }
 
   function handleSubmitEditing() {
     editTask({ taskId: task.id, taskNewTitle: titleText });
-    handleCancelEditing();
+    setIsEditing(false);
   }
 
   useEffect(() => {
@@ -125,7 +126,6 @@ const styles = StyleSheet.create({
   taskButton: {
     flex: 1,
     paddingHorizontal: 24,
-    paddingVertical: 15,
     marginBottom: 4,
     borderRadius: 4,
     flexDirection: "row",
